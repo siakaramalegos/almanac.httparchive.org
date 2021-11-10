@@ -23,19 +23,19 @@ unedited: true
 
 Performance is important for user experience. Slow-loading and slow-to-respond websites frustrate users and cause lost conversions. This is the first year that the [Core Web Vitals](https://web.dev/vitals/) have contributed to Google search rankings. As such, we've seen greater interest in  improving website performance which is great news for users.
 
-What are our top takeaways from this year's report? First, we still have a long way to go in providing a good user experience. For example, faster networks and devices have not yet reached the point where we can ignore how much JavaScript we deliver to a site. And, we may never get there. Second, sometimes we misuse new features for performance resulting in poorer performance. Finally, we need a better metric for measuring interactivity (and you can help).
+What are our top takeaways from this year's report? First, the web still has a long way to go in providing a good user experience. For example, faster networks and devices have not yet reached the point where how much JavaScript is delivered can be ignored. Second, sometimes new features for performance result in poorer performance metrics. Finally, there is a need for a better metric measuring interactivity (and you can help).
 
-What's new this year? We're excited to share performance data by traffic ranking for the first time. We also have all the core performance metrics from previous years. Finally, we added a deeper dive into the Largest Contentful Paint (LCP) element.
+What's new this year? The HTTP Archive team is excited to share performance data by traffic ranking for the first time and all the core performance metrics from previous years, including a deeper dive into the Largest Contentful Paint (LCP) element.
 
 ### Notes on Methodology
 
-One thing that makes the performance chapter different from the others is that we rely heavily on the [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report) (CrUX) for our analyses. Why? If our number one priority is user experience, then the best way to measure performance is with real user data (real user metrics, or RUM for short).
+One thing that makes the performance chapter different from the others is that it relies heavily on the [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report) (CrUX) for the analyses. Why? If the number one priority is user experience, then the best way to measure performance is with real user data (real user metrics, or RUM for short).
 
 > The Chrome User Experience Report provides user experience metrics for how real-world Chrome users experience popular destinations on the web. -[Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report)
 
 CrUX data only provides high-level field/RUM metrics and only for the Chrome browser. Additionally, CrUX reports data by origin, or website, instead of by page.
 
-We supplement our CrUX RUM data with lab data from WebPageTest in HTTP Archive. WebPageTest includes very detailed information about each page, including the full Lighthouse report. Note that WebPageTest measures performance in [California and Oregon](https://almanac.httparchive.org/en/2021/methodology#webpagetest). The performance data in CrUX is global since it represents real user page loads.
+The CrUX RUM data is supplemented with lab data from WebPageTest in HTTP Archive. WebPageTest includes very detailed information about each page, including the full Lighthouse report. Note that WebPageTest measures performance in [California and Oregon](https://almanac.httparchive.org/en/2021/methodology#webpagetest). The performance data in CrUX is global since it represents real user page loads.
 
 When comparing performance year-over-year, keep in mind that:
 
@@ -47,7 +47,7 @@ Read the full [methodology](./methodology) for the Web Almanac to learn more.
 
 ## High-Level Performance: Core Web Vitals
 
-Before we dive into the individual metrics, let's take a look at combined performance for the [Core Web Vitals](https://web.dev/vitals/) (CWV). The Core Web Vitals (LCP, CLS, FID) are a set of performance metrics focused on user experience. They focus on loading, interactivity, and visual stability. Web performance is notorious for an alphabet soup of metrics, but the community is coalescing on this framework.
+Before diving into the individual metrics, let's take a look at combined performance for the [Core Web Vitals](https://web.dev/vitals/) (CWV). The Core Web Vitals (LCP, CLS, FID) are a set of performance metrics focused on user experience. They focus on loading, interactivity, and visual stability. Web performance is notorious for an alphabet soup of metrics, but the community is coalescing on this framework.
 
 This section focuses on websites that reached the "good" threshold on all three CWV metrics to understand how the web is performing at a high level. In the Analysis by Metric section, we'll cover the same charts by each metric in detail, plus more metrics not in the CWV.
 
@@ -66,9 +66,9 @@ This section focuses on websites that reached the "good" threshold on all three 
 <!-- TODO: note style -->
 <p class="note"><strong>Note:</strong> As the CLS calculation changed since last year, this is not an apples-to-apples comparison.</p>
 
-The Core Web Vitals for websites in the Chrome User Experience Report improved year-over-year. But, a good part of this improvement could be due to a change in the CLS calculation, not necessarily to a performance improvement in CLS. The resulting CLS "improvement" was 8 points on desktop (2 for mobile). LCP improved by 7 points for desktop (2 for mobile). FID was already at 100% for desktop for both years and improved by 10 points on mobile.
+The Core Web Vitals for websites in the Chrome User Experience Report improved year-over-year. But, a good part of this improvement is due to a change in the CLS calculation, not necessarily to a performance improvement in CLS. The resulting CLS "improvement" was 8 points on desktop (2 for mobile). LCP improved by 7 points for desktop (2 for mobile). FID was already at 100% for desktop for both years and improved by 10 points on mobile.
 
-As in previous years, performance was better on desktop machines than mobile devices. This is why it's crucial to test your site's performance on real mobile devices and to measure real user metrics (i.e., field data). Emulating mobile in developer tools is convenient in the lab but not representative of real user experiences.
+As in previous years, performance was better on desktop machines than mobile devices. This is why it's crucial to test your website's performance on real mobile devices and to measure real user metrics (i.e., field data). Emulating mobile in developer tools is convenient in the lab but not representative of real user experiences.
 
 ### By Effective Connection Type
 
@@ -86,7 +86,7 @@ The data by connection type in CrUX can be difficult to understand. It is not ba
 
 Faster connections correlated with better Core Web Vitals performance. Offline performance was better presumably because of service worker caching in progressive web apps. Yet, the number of origins in the offline effective connection type category is negligible at 2,634 total (0.02%).
 
-The top takeaway is that 3G speeds and lower correlated with significant performance degradation. Consider providing pared-down experiences for access at low connection speeds (e.g., [data saver mode](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/save-data/)). Profile your site with devices and connections that represent your users (based on your analytics data).
+The top takeaway is that 3G speeds and lower correlated with significant performance degradation. Consider providing pared-down experiences for access at low connection speeds (e.g., [data saver mode](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/save-data/)). Profile your website with devices and connections that represent your users (based on your analytics data).
 
 {{ figure_markup(
   image="performance-3-change-in-ect.png",
@@ -98,9 +98,9 @@ The top takeaway is that 3G speeds and lower correlated with significant perform
   )
 }}
 
-Earlier, we mentioned year-over-year improvements in LCP and FID improvements. These could be partly due to faster mobile devices and mobile networks. The chart above shows total origins accessed on 3G speed dropped by 2 points while 4G origins increased by 3 points. Percent of origins is not necessarily correlated with traffic. But, I would guess if people have more access to higher speeds, then more origins would be accessed from that connection type.
+The previously mentioned year-over-year improvements in LCP and FID improvements are partly due to faster mobile devices and mobile networks. The chart above shows total origins accessed on 3G speed dropped by 2 points while 4G origins increased by 3 points. Percent of origins is not necessarily correlated with traffic. But if people have more access to higher speeds, then likely more origins are accessed from that connection type.
 
-Performance by connection type would be easier to understand if we could start tracking by traffic and not only origin.  It would also be nice to see data for higher speeds. However, [the API is currently limited](https://developer.mozilla.org/en-US/docs/Glossary/Effective_connection_type) to grouping  anything above 4G as 4G.
+Performance by connection type is easier to understand if tracked by traffic and not only origin. Which in turn can lead to higher speeds. However, [the API is currently limited](https://developer.mozilla.org/en-US/docs/Glossary/Effective_connection_type) to grouping anything above 4G as 4G.
 
 ### By Geographic Region
 
@@ -116,7 +116,7 @@ Performance by connection type would be easier to understand if we could start t
   )
 }}
 
-Regions in parts of Asia and Europe continued to have higher performance. This may be due to higher network speeds, wealthier populations with faster devices, and closer edge-caching locations.  We should inspect the dataset before drawing too many conclusions. Here are the top 10 regions by the number of websites in CrUX versus their relative population sizes:
+Regions in parts of Asia and Europe continued to have higher performance. This may be due to higher network speeds, wealthier populations with faster devices, and closer edge-caching locations. Here are the top 10 regions by the number of websites in CrUX versus their relative population sizes:
 
 {{ figure_markup(
   image="performance-5-country-top-origins-vs-pop.png",
@@ -150,7 +150,7 @@ Remember that CrUX data is only gathered in Chrome. The percent of origins by co
 
 ### By Rank
 
-This year for the first time, we have ranking data! ​​CrUX determines ranking by the number of page views per website measured in Chrome. In the charts, the categories are additive. The top 10,000 sites include the top 1,000 sites, and so forth. The "all" category is sometimes referred to as the top 10,000,000, but it does not have a full 10 million websites in it. See the [methodology](./methodology#chrome-ux-report) for more details.
+This year for the first time, the metrics have website ranking data! ​​CrUX determines ranking by the number of page views tracked per website measured in Chrome. In the charts, the categories are additive. The top 10,000 websites include the top 1,000 websites, and so forth. The "all" category is sometimes referred to as the top 10,000,000, but it does not have a full 10 million websites in it. See the [methodology](./methodology#chrome-ux-report) for more details.
 
 {{ figure_markup(
   image="performance-7-cwv-by-rank.png",
@@ -162,13 +162,13 @@ This year for the first time, we have ranking data! ​​CrUX determines rankin
   )
 }}
 
-The top 1,000 sites significantly outperformed the rest in the Core Web Vitals. An interesting trough of poorer performance occurs in the middle of the chart which is due to CLS. FID was flat across all buckets, and all other metrics correlated with higher performance for higher ranking.
+The top 1,000 websites significantly outperformed the rest in the Core Web Vitals. An interesting trough of poorer performance occurs in the middle of the chart which is due to CLS. FID was flat across all buckets, and all other metrics correlated with higher performance for higher ranking.
 
 Correlation is not causation. Yet countless companies have shown performance improvements leading to bottom-line business impacts ([WPO stats](https://wpostats.com/)). You don't want performance to be the reason you can't achieve higher traffic and increased engagement.
 
 ## Analysis by Metric
 
-In this section, we will dive down into each metric. For those who are less familiar, we include links to articles that explain them in depth.
+This section dives into each metric. For those who are less familiar, links to relevant articles that explain them in depth are included.
 
 ### Time-to-First-Byte (TTFB)
 
@@ -196,9 +196,9 @@ TTFB was faster on desktop than mobile, presumably because of faster network spe
   )
 }}
 
-We have a long way to go for TTFB. 75% of our websites were in the 4G connection group and 25% in the 3G group, with the remaining ones negligible. At 4G effective speeds, only 19% of origins had "good" performance.
+TTFB still has a long way to go. 75% of our websites were in the 4G connection group and 25% in the 3G group, with the remaining ones negligible. At 4G effective speeds, only 19% of origins had "good" performance.
 
-You may be asking yourself how TTFB can even occur with offline connections. Presumably, most of the offline sites that record and send TTFB data use [service worker caching](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers). TTFB can also be thought of as "response start" regardless of whether a server is involved. Service worker startup times can be long, which could be why their "TTFB" isn't always below 0.5 seconds. Also, some of these sites may first check for a cache handler fail before serving up the service worker cache. Even with longer startup times, these sites on average achieve first byte faster than the other connection categories.
+You may be asking yourself how TTFB can even occur with offline connections. Presumably, most of the offline websites that record and send TTFB data use [service worker caching](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers). Service worker startup time can be long (> 1 second) which is why their "TTFB" isn't always below 0.5 seconds. Remember that the offline category only represents 0.02% of the data.
 
 {{ figure_markup(
   image="performance-TTFB-by-rank.png",
@@ -210,10 +210,10 @@ You may be asking yourself how TTFB can even occur with offline connections. Pre
   )
 }}
 
-For rank, TTFB was faster for higher-ranking sites. One reason could be that most of these are larger companies with more resources to prioritize performance. They may focus on improving server-side performance and delivering assets through edge CDNs. Another reason could be selection bias - the top origins might be accessed more in regions with closer servers, i.e., lower latency.
+For rank, TTFB was faster for higher-ranking websites. One reason may be that most of these are larger companies with more resources to prioritize performance. They may focus on improving server-side performance and delivering assets through edge CDNs. Another possible reason may be a selection bias - where the top origins are accessed more in regions with servers closer to the end user, i.e., lowering the average latency.
 
 <!-- TODO: validate CMS chapter link works -->
-One more possibility has to do with CMS adoption. The [CMS Chapter](./cms) shows CMS adoption by rank.
+In addition, CMS adoption may also be a factor in TTFB. The [CMS Chapter](./cms) shows CMS adoption by rank.
 
 {{ figure_markup(
   image=".png",
@@ -225,9 +225,9 @@ One more possibility has to do with CMS adoption. The [CMS Chapter](./cms) shows
   )
 }}
 
-42% of pages (mobile) in the "all" group used a CMS whereas the top 1,000 sites only had 7% adoption.
+42% of pages (mobile) in the "all" group used a CMS whereas the top 1,000 websites only had 7% adoption.
 
-Then, if we look at the top 5 CMSs by rank, we see that WordPress has the highest adoption at for 31% of "all" pages:
+Then, when looking at the top 5 CMSs by rank, WordPress has the highest adoption at for 31% of "all" pages:
 
 {{ figure_markup(
   image=".png",
@@ -239,7 +239,7 @@ Then, if we look at the top 5 CMSs by rank, we see that WordPress has the highes
   )
 }}
 
-Finally, if we look at the [Core Web Vitals Technology Report](https://datastudio.google.com/s/o6zLzlTpWaI), we see how each CMS performs by metric:
+Finally, when looking at the [Core Web Vitals Technology Report](https://datastudio.google.com/s/o6zLzlTpWaI), each CMS performs by metric is shown:
 
 {{ figure_markup(
   image=".png",
@@ -254,7 +254,7 @@ Finally, if we look at the [Core Web Vitals Technology Report](https://datastudi
 <!-- TODO: figcaption -->
 Figure: Origins having good TTFB by CMS ([Core Web Vitals Technology Report](https://datastudio.google.com/s/o6zLzlTpWaI))
 
-Only 5% of origins on WordPress experienced good TTFB in July 2021. Considering WordPress's large share of the top 10M sites, its poor TTFB could be a contributor to the TTFB degradation by rank.
+Only 5% of origins on WordPress experienced good TTFB in July 2021. Considering WordPress's large share of the top 10 million websites, its poor TTFB is likely a contributor to the TTFB degradation by rank.
 
 ### First Contentful Paint (FCP)
 
@@ -284,9 +284,9 @@ FCP was faster on desktop than mobile, likely due to both faster average network
   )
 }}
 
-Origins at 3G speeds and below experienced significant degradations in FCP. Again, ensure that you are profiling your website using real devices and networks that reflect your user data from analytics. Your JavaScript bundles may not seem significant when you're only profiling on high-end desktops with fiber connections.
+Origins at 3G speeds and below experienced significant degradations in FCP. Again, when profiling your website ensure that you are using real devices and networks that representative of users in your web analytics data. The JavaScript bundles loading on page load may not seem significant when you're only profiling on high-end desktops with fiber connections, but can pose a huge bottleneck on low-end mobiles and/or connections.
 
-Offline connections were closer in performance to 4G though not quite as good. Service worker start-up time plus multiple cache reads could be some causes. More factors come into play with FCP than with TTFB.
+Offline connections were closer in performance to 4G though not quite as good. Service worker start-up time plus multiple cache reads may be responsible. More factors come into play with FCP than with TTFB.
 
 {{ figure_markup(
   image="performance-FCP-by-rank.png",
@@ -316,7 +316,7 @@ Common culprits for poor FCP are render-blocking resources, server response time
   )
 }}
 
-LCP was faster on desktop than mobile. TTFB affects LCP like FCP.  Comparisons by device, connection type, and rank all mirror the trends of FCP. Render-blocking resources, total weight, and loading strategies all affect LCP performance.
+in 2021 LCP is faster on desktop than mobile. TTFB affects LCP like FCP. Comparisons by device, connection type, and rank all mirror the trends of FCP. Render-blocking resources, total weight, and loading strategies all affect LCP performance.
 
 {{ figure_markup(
   image="performance-LCP-by-ect.png",
@@ -328,7 +328,7 @@ LCP was faster on desktop than mobile. TTFB affects LCP like FCP.  Comparisons b
   )
 }}
 
-Offline origins with good LCP more closely matched 4G experiences, though poor LCP experiences were higher for offline. LCP occurs after FCP, and the additional budget of 0.7 seconds could be why more offline websites achieved good LCP than FCP.
+Offline origins with good LCP more closely matched 4G experiences, though poor LCP experiences were higher for offline. LCP occurs after FCP, and the additional budget of 0.7 seconds is why more offline websites achieved good LCP than FCP.
 
 {{ figure_markup(
   image="performance-LCP-by-rank.png",
@@ -356,7 +356,7 @@ Let's take a deeper dive look at the LCP element.
   )
 }}
 
-IMG, DIV, P, and H1 made up 83% of all LCP nodes (on mobile). This doesn't tell us if the content was an image or text though as background images can be applied with CSS.
+IMG, DIV, P, and H1 made up 83% of all LCP nodes (on mobile). This doesn't clarify if the content was an image or text though as background images can be applied with CSS.
 
 {{ figure_markup(
   image=".png",
@@ -368,9 +368,9 @@ IMG, DIV, P, and H1 made up 83% of all LCP nodes (on mobile). This doesn't tell 
   )
 }}
 
-We can see that 71-79% of pages had an LCP element that was an image, regardless of HTML node. Furthermore, desktop devices had a higher rate of LCPs as images. This could be due to less real estate on smaller screens pushing images out of the viewport resulting in heading text being the largest element.
+The data shows that 71-79% of pages had an LCP element that was an image, regardless of HTML node. Furthermore, desktop devices had a higher rate of LCPs as images. Possibly due to less available real estate on smaller screens pushing images out of the viewport resulting in heading text being the largest element.
 
-In both cases, images comprised the majority of LCP elements. This warrants a deeper dive into how those images are loading.
+In both cases, images comprised the majority of LCP elements and warrants a deeper dive into how those images are loading.
 
 {{ figure_markup(
   image=".png",
@@ -382,11 +382,11 @@ In both cases, images comprised the majority of LCP elements. This warrants a de
   )
 }}
 
-For user experience, we want LCP elements to load as fast as possible. User experience is why LCP was selected as one of the Core Web Vitals. We do not want it to be lazy-loaded nor decoded asynchronously as that further delays the render. However, we can see that 9.3% of pages were using the native loading=lazy flag on an LCP `<img>` element.
+For a great user experience, LCP elements need to load as fast as possible. User experience is why LCP was selected as one of the Core Web Vitals. This means that lazy-loaded nor decoded asynchronously above the fold can cause further delays in the render process. However, the data shows that 9.3% of pages are using the native loading=lazy flag on an LCP `<img>` element.
 
-Not all browsers support native lazy loading. Popular lazy loading polyfills detect a "lazyload" class on an image element. Thus, we can identify more possibly lazy-loaded images by adding images with a "lazyload" class to the total. The percent of sites probably lazy loading their LCP `<img>` element jumps up to 16.5% on mobile.
+Not all browsers support native lazy loading. Popular lazy loading polyfills detect a "lazyload" class on an image element. Thus, it is possible to identify more possibly lazy-loaded images by adding images with a "lazyload" class to the total. The percent of websites probably lazy loading their LCP `<img>` element jumps up to 16.5% on mobile.
 
-Lazy-loading your LCP element will result in worse performance. Don't do it! Luckily, only 0.4% of sites were decoding their LCP images asynchronously. And, the negative impact of asynchronous decode is not as high as lazy loading.
+Lazy-loading a LCP element above fold can result in worse performance. Don't do it! Luckily, only 0.4% of websites were decoding their LCP images asynchronously. And, the negative impact of asynchronous decode is not as high as lazy loading.
 
 {{ figure_markup(
   content="354 websites",
@@ -424,7 +424,7 @@ Interestingly, 354 origins on desktop attempted to use native-lazy loading on HT
 
 Performance degradation from 4G to 3G and below was not as pronounced as with FCP and LCP. Some degradation exists, but it's not reflected in the device data, only the connection type.
 
-Offline websites had the highest CLS performance of all connection types. For sites with service worker caching, some assets like images and ads that would otherwise cause layout shifts may not be cached. Thus, they would never load and never cause a layout shift. Often fallback HTML for these sites can be more basic versions of the online website.
+![image](insert_image_url_here)
 
 {{ figure_markup(
   image="performance-CLS-by-rank.png",
@@ -436,9 +436,7 @@ Offline websites had the highest CLS performance of all connection types. For si
   )
 }}
 
-For ranking, CLS performance showed an interesting trough for the top 10,000 websites. In addition, all the ranked groups above 1M performed worse than the sites ranked under 1M. Since the "all"  group had better performance than all the other ranked groupings the sub-1M group performs better. Wordpress may again play a role in this as [60% of origins on Wordpress experienced a good CLS](https://datastudio.google.com/s/qG00yMxSa3o).
-
-Common culprits for poor CLS include not reserving space for images, text shifts when web fonts are loaded, top banners inserted after first paint, non-composited animations, and iframes.
+Common culprits for poor CLS include not reserving viewport space for images, text shifts when web fonts are loaded, top banners inserted after first paint, non-composited animations, and iframes.
 
 ### First Input Delay (FID)
 
@@ -468,7 +466,7 @@ FID performance was better on desktop than on mobile devices likely due to devic
 
 FID performance degraded some by connection type, but less so than the other metrics. The high distribution of scores seems to be reducing the amount of variance we're seeing in the analysis.
 
-Unlike the other metrics, FID was worse for offline websites than any other connection category. This could be due to the more complex nature of many websites with service workers. Having a service worker does not eliminate the impact of client-side JavaScript running on the main thread.
+Unlike the other metrics, FID was worse for offline websites than any other connection category, likely due to the more complex nature of many websites with service workers. Having a service worker does not eliminate the impact of client-side JavaScript running on the main thread.
 
 {{ figure_markup(
   image="performance-FID-by-rank.png",
@@ -482,17 +480,17 @@ Unlike the other metrics, FID was worse for offline websites than any other conn
 
 FID performance by rank was flat.
 
-For all FID metrics, we see very large bars in the "good" category which tells me we should work toward finding a better metric. The good news is the [Chrome team is evaluating this now](https://web.dev/better-responsiveness-metric/) and would like your feedback.
+For all FID metrics, very large bars are in the "good" category which indicates that the web needs to work toward finding a better metric or a more precise method of measurement. The good news is the [Chrome team is evaluating this now](https://web.dev/better-responsiveness-metric/) and wants your feedback.
 
-If your site's performance is not in the "good" category, then you definitely have a performance problem. A common culprit for FID issues is too much long-running JavaScript. Keep your bundle sizes small and pay attention to third-party scripts.
+If your website's performance is not in the "good" category, then you definitely have a performance problem. A common culprit for FID issues is too much long-running JavaScript. Keep your bundle sizes small and pay attention to third-party scripts.
 
 ### Total Blocking Time (TBT)
 
 > The Total Blocking Time (TBT) metric measures the total amount of time between First Contentful Paint (FCP) and Time to Interactive (TTI) where the main thread was blocked for long enough to prevent input responsiveness. --[Web.dev](https://web.dev/tbt/) ]
 
-[Total Blocking Time (TBT)](https://web.dev/tbt/) is a lab-based metric that helps us debug potential interactivity issues. FID is a field-based metric, and TBT is its lab-based analog. Currently, when evaluating client websites, I reach for total blocking time TBT as another indicator of possible performance issues due to JavaScript.
+[Total Blocking Time (TBT)](https://web.dev/tbt/) is a lab-based metric that helps in debugging potential interactivity issues. FID is a field-based metric, and TBT is its lab-based analog. It is worh looking at total blocking time TBT as another indicator of possible performance issues due to JavaScript.
 
-Unfortunately, TBT is not measured in the Chrome User Experience Report. But, we can still get an idea of what's going on using the HTTP Archive Lighthouse data (only collected for mobile):
+Unfortunately, TBT is not measured in the Chrome User Experience Report, however using the HTTP Archive Lighthouse data (only collected for mobile) it is still possible to get an idea of what is going on:
 
 {{ figure_markup(
   image="performance-tbt.png",
@@ -506,7 +504,7 @@ Unfortunately, TBT is not measured in the Chrome User Experience Report. But, we
 
 <p class="note"><strong>Note:</strong> The groups in the chart are based off of the Lighthouse score for TBT (e.g., >= 0.9 results in "good"). Due to rounding of the score, some TBT values slightly above 200ms get categorized as "good" (and similarly at the 600ms threshold).</p>
 
-Remember that the data is a single, throttled-CPU Lighthouse run through WebPageTest and does not reflect real user experiences. Yet, potential interactivity looked much worse when looking at TBT versus FID. The "real" evaluation of your interactivity is probably somewhere between. Thus, if your FID is "good", take a look at TBT in case you're missing some poor user experiences that FID can't catch yet. The same issues that cause poor FID also cause poor TBT.
+The dataset is based on a single, throttled-CPU Lighthouse run through WebPageTest and does not reflect real user experiences. Yet, potential interactivity looked much worse when looking at TBT versus FID. The "real" evaluation of your interactivity is probably somewhere between. Thus, if your FID is "good", take a look at TBT in case you're missing some poor user experiences that FID can't catch yet. The same issues that cause poor FID also cause poor TBT.
 
 <!-- TODO: check -->
 {{ figure_markup(
@@ -519,12 +517,12 @@ Remember that the data is a single, throttled-CPU Lighthouse run through WebPage
 
 ## Conclusion
 
-We still have a long way to go to provide great user experiences, but we can take steps to improve them.
+The web still has a long way to go to provide great user experiences in terms of performance and can take the following steps to improve.
 
-First, you cannot improve performance unless you can measure it. A good first step here is to measure your site using real user devices and to set up real-user monitoring (RUM). You can get a flavor of how your site performs with Chrome users with the [CrUX dashboard launcher](https://rviscomi.github.io/crux-dash-launcher/) (if your site is in the dataset). You should set up a RUM solution that measures across multiple browsers. You can build this yourself or use one of many analytics vendors' solutions.
+First, you cannot improve performance unless you can measure it. A good first step here is to measure your website using real user devices and to set up real-user monitoring (RUM). You can get a flavor of how your website performs with Chrome users with the [CrUX dashboard launcher](https://rviscomi.github.io/crux-dash-launcher/) (if your website is in the dataset). You set up a RUM solution that measures across multiple browsers. You can build this yourself or use one of many analytics vendors' solutions.
 
 Second, as new features in HTML, CSS, and JavaScript are released, make sure you understand them before implementing them. Use A/B testing to verify that adopting a new strategy results in improved performance. For example, don't lazy-load images above the fold. If you have a RUM tool implemented, you can better detect when your changes accidentally cause regressions.
 
-Finally, until we have a better metric for interactivity, optimize for both FID (field/real-user data) and TBT (lab data). Take a look at the [proposals](https://web.dev/better-responsiveness-metric/) for new metrics and participate by providing your own feedback.
+Finally, until there is a better metric for interactivity, optimize for both FID (field/real-user data) and TBT (lab data). Take a look at the [proposals](https://web.dev/better-responsiveness-metric/) for new metrics and participate by providing your own feedback.
 
 What did you find most interesting or surprising? Share your thoughts with us on Twitter ([@HTTPArchive](https://twitter.com/HTTPArchive))!
